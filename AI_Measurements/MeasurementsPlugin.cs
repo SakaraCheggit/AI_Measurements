@@ -1,0 +1,48 @@
+﻿using BepInEx;
+using BepInEx.Configuration;
+using BepInEx.Logging;
+using KKAPI.Chara;
+using KKAPI.Utilities;
+using System;
+
+namespace AI_Measurements
+{
+    [BepInPlugin("sakacheggs.measurements", "AI_Measurements", "1.0.0")]
+    [BepInProcess("AI-Syoujyo")]
+    [BepInDependency("marco.kkapi")]
+    public class MeasurementsPlugin : BaseUnityPlugin
+    {
+        internal static ConfigEntry<bool> UseMetricUnits { get; private set; }
+        internal static ConfigEntry<string> Region { get; private set; }
+
+        internal static ConfigEntry<bool> DebugValues { get; private set; }
+
+        internal static readonly string[] Regions = Enum.GetNames(typeof(Region));
+
+        internal static new ManualLogSource Logger { get; private set; }
+
+        public void Start()
+        {
+            Logger = base.Logger;
+            PluginConfig();
+            CharacterApi.RegisterExtraBehaviour<MeasurementsController>("AI_Measurements");
+            MeasurementsGui.InitMaker(this);
+        }
+
+        private void PluginConfig()
+        {
+            DebugValues = Config.Bind("Debug", "Enable logging of measurements (Debug mode)", false,
+                new ConfigDescription("Will log all measurements to the console.", null,
+                    new ConfigurationManagerAttributes { IsAdvanced = true }));
+
+            UseMetricUnits = Config.Bind("General", "Use metric measurements", false,
+                new ConfigDescription("True to show values in centimeters. False to show values in inches."));
+
+            var regions = Enum.GetNames(typeof(Region));
+            Region = Config.Bind("General", "Region", regions[0],
+                new ConfigDescription(
+                    "Cup sizes differ by region because bra makers are dumb. Select the one you like most.",
+                    new AcceptableValueList<string>(regions)));
+        }
+    }
+}
