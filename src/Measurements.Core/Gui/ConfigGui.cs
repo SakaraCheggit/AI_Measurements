@@ -4,7 +4,7 @@ using KKAPI.Maker.UI;
 using System;
 using System.Collections.Generic;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
     internal abstract class ConfigGui<TControl, TValue> : IGui<BaseEditableGuiEntry<TValue>>
         where TControl : BaseEditableGuiEntry<TValue>

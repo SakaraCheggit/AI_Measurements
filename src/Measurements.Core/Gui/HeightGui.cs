@@ -1,6 +1,6 @@
 ﻿using KKAPI.Maker;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
     internal class HeightGui : TextGui
     {

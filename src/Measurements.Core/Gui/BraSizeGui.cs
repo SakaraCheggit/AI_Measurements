@@ -1,7 +1,7 @@
 ﻿using KKAPI.Maker;
 using System;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
     internal class BraSizeGui : TextGui
     {

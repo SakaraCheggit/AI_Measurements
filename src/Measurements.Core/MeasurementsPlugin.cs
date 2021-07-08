@@ -5,7 +5,7 @@ using KKAPI.Chara;
 using KKAPI.Utilities;
 using System;
 
-namespace AI_Measurements
+namespace Measurements
 {
     [BepInPlugin("sakacheggs.measurements", "AI_Measurements", "1.0.0")]
     [BepInProcess("AI-Syoujyo")]
