@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IllusionLibs.BepinEx" Version="5.4.8" />
+    <PackageReference Include="IllusionLibs.HoneySelect2.Assembly-CSharp" Version="2020.5.29.2" />
+    <PackageReference Include="IllusionLibs.HoneySelect2.UniRx" Version="2020.5.29.2" />
+    <PackageReference Include="IllusionLibs.HoneySelect2.UnityEngine.CoreModule" Version="2018.4.11.2" />
+    <PackageReference Include="IllusionLibs.HoneySelect2.UnityEngine.UI" Version="2018.4.11.2" />
+    <PackageReference Include="IllusionModdingAPI.HS2API" Version="1.20.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Measurements.Core\**\*.cs" />
+  </ItemGroup>
+</Project>
