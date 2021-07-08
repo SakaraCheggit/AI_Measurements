@@ -5,27 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="AIAPI">
-      <HintPath>Libs\AI\AIAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>Libs\AI\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="BepInEx">
-      <HintPath>Libs\AI\BepInEx.dll</HintPath>
-    </Reference>
-    <Reference Include="UniRx">
-      <HintPath>Libs\AI\UniRx.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>Libs\AI\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>Libs\AI\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Libs\AI\UnityEngine.UI.dll</HintPath>
-    </Reference>
+    <PackageReference Include="IllusionLibs.AIGirl.Assembly-CSharp" Version="2020.5.29.4" />
+    <PackageReference Include="IllusionLibs.AIGirl.UniRx" Version="2020.5.29.2" />
+    <PackageReference Include="IllusionLibs.AIGirl.UnityEngine.CoreModule" Version="2018.2.21.3" />
+    <PackageReference Include="IllusionLibs.AIGirl.UnityEngine.UI" Version="2018.2.21.3" />
+    <PackageReference Include="IllusionLibs.BepInEx" Version="5.4.8" />
+    <PackageReference Include="IllusionModdingAPI.AIAPI" Version="1.20.2"></PackageReference>
   </ItemGroup>
-
 </Project>
