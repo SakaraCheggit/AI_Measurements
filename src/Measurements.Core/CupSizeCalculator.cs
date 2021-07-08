@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AI_Measurements
+namespace Measurements
 {
     internal static class CupSizeCalculator
     {

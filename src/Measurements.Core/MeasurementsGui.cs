@@ -3,7 +3,7 @@ using KKAPI.Maker.UI;
 using KKAPI.Studio;
 using System.Collections.Generic;
 
-namespace AI_Measurements
+namespace Measurements
 {
     public static class MeasurementsGui
     {

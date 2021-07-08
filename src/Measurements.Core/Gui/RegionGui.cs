@@ -2,7 +2,7 @@
 using KKAPI.Maker.UI;
 using System;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
     internal class RegionGui : ConfigGui<MakerDropdown, int>
     {

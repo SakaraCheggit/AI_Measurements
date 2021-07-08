@@ -1,4 +1,4 @@
-﻿namespace AI_Measurements
+﻿namespace Measurements
 {
     internal struct MeasurementsData
     {

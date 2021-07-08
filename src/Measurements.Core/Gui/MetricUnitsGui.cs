@@ -1,7 +1,7 @@
 ﻿using KKAPI.Maker;
 using KKAPI.Maker.UI;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
     internal class MetricUnitsGui : ConfigGui<MakerToggle, bool>
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AI_Measurements
+namespace Measurements
 {
     internal struct HipMeasurement
     {

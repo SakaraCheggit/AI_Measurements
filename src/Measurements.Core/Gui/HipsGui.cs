@@ -1,22 +1,23 @@
 ﻿using KKAPI.Maker;
 
-namespace AI_Measurements.Gui
+namespace Measurements.Gui
 {
-    internal class WaistGui : TextGui
+    internal class HipsGui : TextGui
     {
         public override void Initialize(
             MakerCategory category,
             MeasurementsPlugin plugin,
             RegisterSubCategoriesEvent e
-        ) => InitializeInternal("Waist", category, plugin, e);
+        ) => InitializeInternal("Hips", category, plugin, e);
 
         public override void Update(MeasurementsData data, MeasurementsController controller)
         {
             SetText(controller.UseMetricUnits
-                ? $"{data.Waist:N0} cm"
-                : $"{data.Waist * FreedomRatio:N0}\"");
+                ? $"{data.Hips:N0} cm"
+                : $"{data.Hips * FreedomRatio:N0}\"");
         }
 
-        protected override bool ShouldBeVisible() => true;
+        protected override bool ShouldBeVisible()
+            => MakerAPI.GetMakerSex() == GENDER_FEMALE;
     }
 }
