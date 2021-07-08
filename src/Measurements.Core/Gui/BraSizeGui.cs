@@ -18,7 +18,6 @@ namespace Measurements.Gui
                 var region = (Region)Enum.Parse(typeof(Region), MeasurementsPlugin.Regions[controller.Region]);
                 var bandSize = ((int)((data.Band * FreedomRatio) / 2) + 1) * 2;
                 var difference = (data.Bust * FreedomRatio) - bandSize;
-                var roundedBand = controller.UseMetricUnits ? ((int)(data.Band / 5) + 1) * 5 : bandSize;
                 var cupSize = CupSizeCalculator.GetCupSize(difference, region);
                 SetText(controller.UseMetricUnits
                     ? $"{Math.Round((bandSize / FreedomRatio) / 5) * 5:N0}{cupSize}"
