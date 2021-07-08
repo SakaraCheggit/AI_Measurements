@@ -7,11 +7,12 @@ using System;
 
 namespace Measurements
 {
-    [BepInPlugin("sakacheggs.measurements", "AI_Measurements", "1.0.0")]
-    [BepInProcess("AI-Syoujyo")]
-    [BepInDependency("marco.kkapi")]
-    public class MeasurementsPlugin : BaseUnityPlugin
+    [BepInPlugin(GUID, GUID, Version)]
+    public partial class MeasurementsPlugin : BaseUnityPlugin
     {
+        public const string GUID = "sakacheggs.measurements";
+        public const string Version = "1.0.0";
+
         internal static ConfigEntry<bool> UseMetricUnits { get; private set; }
         internal static ConfigEntry<string> Region { get; private set; }
 
