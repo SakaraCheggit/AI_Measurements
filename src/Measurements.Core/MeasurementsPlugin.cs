@@ -7,11 +7,12 @@ using System;
 
 namespace Measurements
 {
-    [BepInPlugin(GUID, GUID, Version)]
+    [BepInPlugin(GUID, Name, Version)]
     public partial class MeasurementsPlugin : BaseUnityPlugin
     {
         public const string GUID = "sakacheggs.measurements";
-        public const string Version = "1.0.0";
+        public const string Name = "Chara Measurements";
+        public const string Version = "1.1.0";
 
         internal static ConfigEntry<bool> UseMetricUnits { get; private set; }
         internal static ConfigEntry<string> Region { get; private set; }
