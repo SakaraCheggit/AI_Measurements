@@ -26,6 +26,7 @@ namespace Measurements
             new Height.Calculator(),
             new Bust.Calculator(),
             new Band.Calculator(),
+            new Hips.Calculator(),
             new Dick.Calculator(),
         };
 
@@ -65,28 +66,12 @@ namespace Measurements
         {
             return new MeasurementsData
             {
-                Hips = GetHips(),
                 Waist = GetWaist(),
             };
 
             float GetWaist() => MeasurementsCalculator.CalculateWaist(
                 boneVerts[Bones.N_Waist_L], boneVerts[Bones.N_Waist_R],
                 boneVerts[Bones.N_Waist_f], boneVerts[Bones.N_Waist_b]);
-
-            float GetHips() => MeasurementsCalculator.CalculateHips(
-                // TODO find way to adjust Ass vector for butt size as the Legsk_0(3|5) bones don't adjust when ass size changes
-                leftHip: new HipMeasurement
-                {
-                    Front = boneVerts[Bones.cf_J_Legsk_07_00],
-                    Side = boneVerts[Bones.cf_J_Legsk_06_00],
-                    Ass = boneVerts[Bones.cf_J_Legsk_05_00],
-                },
-                rightHip: new HipMeasurement
-                {
-                    Front = boneVerts[Bones.cf_J_Legsk_01_00],
-                    Side = boneVerts[Bones.cf_J_Legsk_02_00],
-                    Ass = boneVerts[Bones.cf_J_Legsk_03_00],
-                });
         }
 
         internal void UpdateTexts()
@@ -103,7 +88,6 @@ namespace Measurements
             if (MeasurementsPlugin.DebugValues.Value)
             {
                 MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
-                MeasurementsPlugin.Logger.LogInfo($"Hips = {data.Hips}");
             }
         }
     }

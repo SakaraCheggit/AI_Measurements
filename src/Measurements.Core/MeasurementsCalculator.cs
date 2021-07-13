@@ -10,14 +10,6 @@ namespace Measurements
                 GetDistanceInCm(front, back) / 2,
                 GetDistanceInCm(left, right) / 2);
 
-        public static float CalculateHips(HipMeasurement leftHip, HipMeasurement rightHip) =>
-            GetDistanceInCm(leftHip.Front, leftHip.Side) +
-            GetDistanceInCm(leftHip.Side, leftHip.Ass) +
-            GetDistanceInCm(leftHip.Ass, rightHip.Ass) +
-            GetDistanceInCm(rightHip.Ass, rightHip.Side) +
-            GetDistanceInCm(rightHip.Side, rightHip.Front) +
-            GetDistanceInCm(rightHip.Front, leftHip.Front);
-
         private static float GetDistanceInCm(Vector3 pointA, Vector3 pointB) =>
             // pulled 10.5 value from HeightBarX plugin
             GetDistance(pointA, pointB) * 10.5f;
