@@ -27,22 +27,6 @@ namespace Measurements
         /// </summary>
         cf_J_Legsk_07_00,
         /// <summary>
-        /// Middle of left breast
-        /// </summary>
-        cf_J_Mune02_L,
-        /// <summary>
-        /// Middle of right breast
-        /// </summary>
-        cf_J_Mune02_R,
-        /// <summary>
-        /// Left nipple
-        /// </summary>
-        cf_J_Mune_Nip01_L,
-        /// <summary>
-        /// Right nipple
-        /// </summary>
-        cf_J_Mune_Nip01_R,
-        /// <summary>
         /// Base of dick
         /// </summary>
         cm_J_dan100_00,
@@ -50,14 +34,6 @@ namespace Measurements
         /// Tip of dick
         /// </summary>
         cm_J_dan109_00,
-        /// <summary>
-        /// Left lat
-        /// </summary>
-        N_Back_L,
-        /// <summary>
-        /// Right lat
-        /// </summary>
-        N_Back_R,
         /// <summary>
         /// Top of the head
         /// </summary>

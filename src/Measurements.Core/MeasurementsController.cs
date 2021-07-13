@@ -23,6 +23,7 @@ namespace Measurements
 
         private static readonly List<CalculatorBase> s_calculators = new List<CalculatorBase>
         {
+            new Bust.Calculator(),
             new Band.Calculator(),
         };
 
@@ -62,7 +63,6 @@ namespace Measurements
         {
             return new MeasurementsData
             {
-                Bust = GetBust(),
                 Dick = GetDick(),
                 Height = GetHeight(),
                 Hips = GetHips(),
@@ -72,33 +72,6 @@ namespace Measurements
             float GetHeight()
             {
                 return MeasurementsCalculator.CalculateHeight(boneVerts[Bones.N_Head_top]);
-            }
-
-            float GetBust()
-            {
-                var leftSideBoob = MeasurementsCalculator.GetLeftSideBoob(
-                    titCenter: boneVerts[Bones.cf_J_Mune02_L],
-                    nipple: boneVerts[Bones.cf_J_Mune_Nip01_L],
-                    targetY: (boneVerts[Bones.N_Back_L].y + boneVerts[Bones.cf_J_Mune02_L].y) / 2
-                );
-                var rightSideBoob = MeasurementsCalculator.GetLeftSideBoob(
-                    titCenter: boneVerts[Bones.cf_J_Mune02_R],
-                    nipple: boneVerts[Bones.cf_J_Mune_Nip01_R],
-                    targetY: (boneVerts[Bones.N_Back_R].y + boneVerts[Bones.cf_J_Mune02_R].y) / 2
-                );
-                return MeasurementsCalculator.CalculateBust(
-                    rightTit: new TitMeasurement
-                    {
-                        Nipple = boneVerts[Bones.cf_J_Mune_Nip01_R],
-                        SideBoob = rightSideBoob,
-                        Lat = boneVerts[Bones.N_Back_R],
-                    },
-                    leftTit: new TitMeasurement
-                    {
-                        Nipple = boneVerts[Bones.cf_J_Mune_Nip01_L],
-                        SideBoob = leftSideBoob,
-                        Lat = boneVerts[Bones.N_Back_L],
-                    });
             }
 
             float GetWaist() => MeasurementsCalculator.CalculateWaist(
@@ -142,7 +115,6 @@ namespace Measurements
             if (MeasurementsPlugin.DebugValues.Value)
             {
                 MeasurementsPlugin.Logger.LogInfo($"Height = {data.Height}");
-                MeasurementsPlugin.Logger.LogInfo($"Bust = {data.Bust}");
                 MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
                 MeasurementsPlugin.Logger.LogInfo($"Hips = {data.Hips}");
                 MeasurementsPlugin.Logger.LogInfo($"Dick = {data.Dick}");

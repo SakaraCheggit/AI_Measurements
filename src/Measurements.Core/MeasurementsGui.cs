@@ -1,4 +1,4 @@
-﻿using KKAPI.Maker;
+using KKAPI.Maker;
 using KKAPI.Maker.UI;
 using KKAPI.Studio;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Measurements
         {
             new Gui.HeightGui(),
             new BraSize.Gui(),
-            new Gui.BustGui(),
+            new Bust.Gui(),
             new Gui.WaistGui(),
             new Gui.HipsGui(),
             new Gui.WaistToHipsGui(),
