@@ -20,7 +20,7 @@ namespace Measurements
         {
             Logger = base.Logger;
             MeasurementsPlugin.Configuration.Initialize(Config);
-            CharacterApi.RegisterExtraBehaviour<MeasurementsController>("AI_Measurements");
+            CharacterApi.RegisterExtraBehaviour<MeasurementsController>(GUID);
             MeasurementsPlugin.UI.Initialize(this);
         }
     }

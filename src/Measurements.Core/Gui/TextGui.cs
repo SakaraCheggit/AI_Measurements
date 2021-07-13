@@ -1,6 +1,5 @@
 using KKAPI.Maker;
 using KKAPI.Maker.UI;
-using System;
 
 namespace Measurements.Gui
 {
@@ -19,17 +18,9 @@ namespace Measurements.Gui
             MeasurementsPlugin plugin,
             RegisterSubCategoriesEvent e);
 
-        public virtual void Update(MeasurementsData data, MeasurementsController controller)
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract void UpdateInternal(MeasurementsData data, MeasurementsController controller);
 
-        protected virtual void UpdateInternal(MeasurementsData data, MeasurementsController controller)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void REFACTOR_Update(MeasurementsData data, MeasurementsController controller)
+        internal void Update(MeasurementsData data, MeasurementsController controller)
         {
             SetVisibility();
             if (IsVisible())
