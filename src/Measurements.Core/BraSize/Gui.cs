@@ -1,9 +1,10 @@
-﻿using KKAPI.Maker;
+using KKAPI.Maker;
+using Measurements.Gui;
 using System;
 
-namespace Measurements.Gui
+namespace Measurements.BraSize
 {
-    internal class BraSizeGui : TextGui
+    internal class Gui : TextGui
     {
         public override void Initialize(
             MakerCategory category,
@@ -11,7 +12,7 @@ namespace Measurements.Gui
             RegisterSubCategoriesEvent e
         ) => InitializeInternal("Bra Size", category, plugin, e);
 
-        public override void Update(MeasurementsData data, MeasurementsController controller)
+        protected override void UpdateInternal(MeasurementsData data, MeasurementsController controller)
         {
             if (controller.Region >= 0)
             {

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Measurements
+namespace Measurements.Hips
 {
-    internal struct HipMeasurement
+    internal struct HipData
     {
         public Vector3 Front;
         public Vector3 Side;

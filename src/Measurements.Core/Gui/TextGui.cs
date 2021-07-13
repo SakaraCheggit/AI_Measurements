@@ -1,4 +1,4 @@
-﻿using KKAPI.Maker;
+using KKAPI.Maker;
 using KKAPI.Maker.UI;
 
 namespace Measurements.Gui
@@ -18,7 +18,14 @@ namespace Measurements.Gui
             MeasurementsPlugin plugin,
             RegisterSubCategoriesEvent e);
 
-        public abstract void Update(MeasurementsData data, MeasurementsController controller);
+        protected abstract void UpdateInternal(MeasurementsData data, MeasurementsController controller);
+
+        internal void Update(MeasurementsData data, MeasurementsController controller)
+        {
+            SetVisibility();
+            if (IsVisible())
+                UpdateInternal(data, controller);
+        }
 
         protected void InitializeInternal(
             string initialText,
@@ -41,9 +48,9 @@ namespace Measurements.Gui
 
         protected abstract bool ShouldBeVisible();
 
-        internal bool IsVisible() => _control.Visible.Value;
+        private bool IsVisible() => _control.Visible.Value;
 
-        internal void SetVisibility()
+        private void SetVisibility()
         {
             var shouldBeVisible = ShouldBeVisible();
             var isVisible = IsVisible();

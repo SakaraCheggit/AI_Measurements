@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Measurements
+namespace Measurements.Bust
 {
-    internal struct TitMeasurement
+    internal struct TitData
     {
         public Vector3 Nipple;
         public Vector3 SideBoob;

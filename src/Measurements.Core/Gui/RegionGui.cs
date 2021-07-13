@@ -13,7 +13,7 @@ namespace Measurements.Gui
         {
             var configuredRegion = Array.IndexOf(
                 MeasurementsPlugin.Regions,
-                MeasurementsPlugin.Region.Value);
+                MeasurementsPlugin.Configuration.Region.Value);
             var control = new MakerDropdown("Region", MeasurementsPlugin.Regions, category, configuredRegion, plugin);
             InitializeInternal(control, e,
                 ctrlr => ctrlr.Region,

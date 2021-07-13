@@ -1,8 +1,9 @@
-﻿using KKAPI.Maker;
+using KKAPI.Maker;
+using Measurements.Gui;
 
-namespace Measurements.Gui
+namespace Measurements.Dick
 {
-    internal class DickGui : TextGui
+    internal class Gui : TextGui
     {
         public override void Initialize(
             MakerCategory category,
@@ -14,7 +15,7 @@ namespace Measurements.Gui
             InitializeInternal(initialText, category, plugin, e);
         }
 
-        public override void Update(MeasurementsData data, MeasurementsController controller)
+        protected override void UpdateInternal(MeasurementsData data, MeasurementsController controller)
         {
             if (controller.UseMetricUnits) SetText($"{data.Dick:N1} cm");
             else SetText($"{data.Dick * FreedomRatio:N1}\"");
