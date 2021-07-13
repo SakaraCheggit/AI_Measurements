@@ -27,14 +27,6 @@ namespace Measurements
         /// </summary>
         cf_J_Legsk_07_00,
         /// <summary>
-        /// Base of dick
-        /// </summary>
-        cm_J_dan100_00,
-        /// <summary>
-        /// Tip of dick
-        /// </summary>
-        cm_J_dan109_00,
-        /// <summary>
         /// Top of the head
         /// </summary>
         N_Head_top,

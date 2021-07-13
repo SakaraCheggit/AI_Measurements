@@ -25,6 +25,7 @@ namespace Measurements
         {
             new Bust.Calculator(),
             new Band.Calculator(),
+            new Dick.Calculator(),
         };
 
         protected override void OnCardBeingSaved(GameMode currentGameMode) { }
@@ -63,7 +64,6 @@ namespace Measurements
         {
             return new MeasurementsData
             {
-                Dick = GetDick(),
                 Height = GetHeight(),
                 Hips = GetHips(),
                 Waist = GetWaist(),
@@ -92,13 +92,6 @@ namespace Measurements
                     Side = boneVerts[Bones.cf_J_Legsk_02_00],
                     Ass = boneVerts[Bones.cf_J_Legsk_03_00],
                 });
-
-            float GetDick()
-            {
-                return MeasurementsCalculator.CalculateDick(
-                    boneVerts[Bones.cm_J_dan100_00],
-                    boneVerts[Bones.cm_J_dan109_00]);
-            }
         }
 
         internal void UpdateTexts()
@@ -117,7 +110,6 @@ namespace Measurements
                 MeasurementsPlugin.Logger.LogInfo($"Height = {data.Height}");
                 MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
                 MeasurementsPlugin.Logger.LogInfo($"Hips = {data.Hips}");
-                MeasurementsPlugin.Logger.LogInfo($"Dick = {data.Dick}");
             }
         }
     }

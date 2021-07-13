@@ -17,7 +17,7 @@ namespace Measurements
             new Gui.WaistGui(),
             new Gui.HipsGui(),
             new Gui.WaistToHipsGui(),
-            new Gui.DickGui(),
+            new Dick.Gui(),
         };
 
         internal static void InitMaker(MeasurementsPlugin measurementsPlugin)

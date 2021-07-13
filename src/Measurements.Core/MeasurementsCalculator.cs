@@ -21,9 +21,6 @@ namespace Measurements
             GetDistanceInCm(rightHip.Side, rightHip.Front) +
             GetDistanceInCm(rightHip.Front, leftHip.Front);
 
-        public static float CalculateDick(Vector3 dickBase, Vector3 dickTip) =>
-            GetDistanceInCm(dickBase, dickTip);
-
         private static float GetDistanceInCm(Vector3 pointA, Vector3 pointB) =>
             // pulled 10.5 value from HeightBarX plugin
             GetDistance(pointA, pointB) * 10.5f;
