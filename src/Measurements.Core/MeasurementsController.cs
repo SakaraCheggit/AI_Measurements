@@ -23,6 +23,7 @@ namespace Measurements
 
         private static readonly List<CalculatorBase> s_calculators = new List<CalculatorBase>
         {
+            new Height.Calculator(),
             new Bust.Calculator(),
             new Band.Calculator(),
             new Dick.Calculator(),
@@ -64,15 +65,9 @@ namespace Measurements
         {
             return new MeasurementsData
             {
-                Height = GetHeight(),
                 Hips = GetHips(),
                 Waist = GetWaist(),
             };
-
-            float GetHeight()
-            {
-                return MeasurementsCalculator.CalculateHeight(boneVerts[Bones.N_Head_top]);
-            }
 
             float GetWaist() => MeasurementsCalculator.CalculateWaist(
                 boneVerts[Bones.N_Waist_L], boneVerts[Bones.N_Waist_R],
@@ -107,7 +102,6 @@ namespace Measurements
 
             if (MeasurementsPlugin.DebugValues.Value)
             {
-                MeasurementsPlugin.Logger.LogInfo($"Height = {data.Height}");
                 MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
                 MeasurementsPlugin.Logger.LogInfo($"Hips = {data.Hips}");
             }

@@ -11,7 +11,7 @@ namespace Measurements
 
         internal static List<Gui.TextGui> TextGuis { get; private set; } = new List<Gui.TextGui>
         {
-            new Gui.HeightGui(),
+            new Height.Gui(),
             new BraSize.Gui(),
             new Bust.Gui(),
             new Gui.WaistGui(),

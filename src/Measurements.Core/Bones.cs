@@ -27,10 +27,6 @@ namespace Measurements
         /// </summary>
         cf_J_Legsk_07_00,
         /// <summary>
-        /// Top of the head
-        /// </summary>
-        N_Head_top,
-        /// <summary>
         /// Waist (front)
         /// </summary>
         N_Waist_f,

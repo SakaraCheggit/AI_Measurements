@@ -5,9 +5,6 @@ namespace Measurements
 {
     internal static class MeasurementsCalculator
     {
-        public static float CalculateHeight(Vector3 topOfHead)
-            => GetDistanceInCm(topOfHead, new Vector3(0, 0, 0));
-
         public static float CalculateWaist(Vector3 front, Vector3 back, Vector3 left, Vector3 right) =>
             GetEllipseCircumference(
                 GetDistanceInCm(front, back) / 2,
