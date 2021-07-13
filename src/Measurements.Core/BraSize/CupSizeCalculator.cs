@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Measurements
+namespace Measurements.BraSize
 {
     internal static class CupSizeCalculator
     {
