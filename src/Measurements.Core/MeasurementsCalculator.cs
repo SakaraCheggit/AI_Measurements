@@ -5,11 +5,6 @@ namespace Measurements
 {
     internal static class MeasurementsCalculator
     {
-        public static float CalculateWaist(Vector3 front, Vector3 back, Vector3 left, Vector3 right) =>
-            GetEllipseCircumference(
-                GetDistanceInCm(front, back) / 2,
-                GetDistanceInCm(left, right) / 2);
-
         private static float GetDistanceInCm(Vector3 pointA, Vector3 pointB) =>
             // pulled 10.5 value from HeightBarX plugin
             GetDistance(pointA, pointB) * 10.5f;

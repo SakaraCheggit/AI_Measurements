@@ -26,6 +26,7 @@ namespace Measurements
             new Height.Calculator(),
             new Bust.Calculator(),
             new Band.Calculator(),
+            new Waist.Calculator(),
             new Hips.Calculator(),
             new Dick.Calculator(),
         };
@@ -66,12 +67,7 @@ namespace Measurements
         {
             return new MeasurementsData
             {
-                Waist = GetWaist(),
             };
-
-            float GetWaist() => MeasurementsCalculator.CalculateWaist(
-                boneVerts[Bones.N_Waist_L], boneVerts[Bones.N_Waist_R],
-                boneVerts[Bones.N_Waist_f], boneVerts[Bones.N_Waist_b]);
         }
 
         internal void UpdateTexts()
@@ -87,7 +83,6 @@ namespace Measurements
 
             if (MeasurementsPlugin.DebugValues.Value)
             {
-                MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
             }
         }
     }
