@@ -1,4 +1,4 @@
-﻿using AIChara;
+using AIChara;
 using KKAPI;
 using KKAPI.Chara;
 using KKAPI.Maker;
@@ -21,9 +21,13 @@ namespace Measurements
         private readonly FindAssist _boneSearcher = new FindAssist();
         private bool _initialized;
 
+        private static readonly List<CalculatorBase> s_calculators = new List<CalculatorBase>
+        {
+        };
+
         protected override void OnCardBeingSaved(GameMode currentGameMode) { }
 
-        public void Initialize()
+        private void Initialize()
         {
             if (!_initialized)
             {
@@ -161,12 +165,10 @@ namespace Measurements
 
             var boneVerts = GetBoneVertices();
             var data = GetMeasurements(boneVerts);
+            foreach (var calculator in s_calculators)
+                calculator.SetValue(ref data, _boneSearcher);
             foreach (var gui in MeasurementsGui.TextGuis)
-            {
-                gui.SetVisibility();
-                if (gui.IsVisible())
-                    gui.Update(data, this);
-            }
+                gui.REFACTOR_Update(data, this);
 
             if (MeasurementsPlugin.DebugValues.Value)
             {
