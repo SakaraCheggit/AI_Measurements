@@ -78,7 +78,7 @@ namespace Measurements
             var data = GetMeasurements(boneVerts);
             foreach (var calculator in s_calculators)
                 calculator.SetValue(ref data, _boneSearcher);
-            foreach (var gui in MeasurementsGui.TextGuis)
+            foreach (var gui in MeasurementsPlugin.UI.MeasurementGuis)
                 gui.REFACTOR_Update(data, this);
 
             if (MeasurementsPlugin.Configuration.DebugValues.Value)

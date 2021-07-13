@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Logging;
 using KKAPI.Chara;
 using System;
@@ -21,7 +21,7 @@ namespace Measurements
             Logger = base.Logger;
             MeasurementsPlugin.Configuration.Initialize(Config);
             CharacterApi.RegisterExtraBehaviour<MeasurementsController>("AI_Measurements");
-            MeasurementsGui.InitMaker(this);
+            MeasurementsPlugin.UI.Initialize(this);
         }
     }
 }
