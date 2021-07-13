@@ -1,8 +1,9 @@
-﻿using KKAPI.Maker;
+using KKAPI.Maker;
+using Measurements.Gui;
 
-namespace Measurements.Gui
+namespace Measurements.WaistToHips
 {
-    internal class WaistToHipsGui : TextGui
+    internal class Gui : TextGui
     {
         public override void Initialize(
             MakerCategory category,
@@ -10,7 +11,7 @@ namespace Measurements.Gui
             RegisterSubCategoriesEvent e
         ) => InitializeInternal("Waist-to-Hips", category, plugin, e);
 
-        public override void Update(MeasurementsData data, MeasurementsController controller)
+        protected override void UpdateInternal(MeasurementsData data, MeasurementsController controller)
         {
             SetText($"{data.Waist / data.Hips:N3}");
         }

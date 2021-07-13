@@ -16,7 +16,7 @@ namespace Measurements
             new Bust.Gui(),
             new Waist.Gui(),
             new Hips.Gui(),
-            new Gui.WaistToHipsGui(),
+            new WaistToHips.Gui(),
             new Dick.Gui(),
         };
 
