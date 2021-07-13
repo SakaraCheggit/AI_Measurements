@@ -23,6 +23,7 @@ namespace Measurements
 
         private static readonly List<CalculatorBase> s_calculators = new List<CalculatorBase>
         {
+            new Band.Calculator(),
         };
 
         protected override void OnCardBeingSaved(GameMode currentGameMode) { }
@@ -50,31 +51,17 @@ namespace Measurements
             var boneVerts = new Dictionary<Bones, Vector3>();
             foreach (var bone in s_measurementBones)
             {
-                if (bone.Key == Bones.cf_J_Spine02_s_Scale)
-                {
-                    HandleSpine02Scale();
-                    continue;
-                }
-
                 var searchResult = _boneSearcher.GetObjectFromName(bone.Value);
                 if (searchResult != null)
                     boneVerts[bone.Key] = searchResult.transform.position;
             }
             return boneVerts;
-
-            void HandleSpine02Scale()
-            {
-                var chestScale = _boneSearcher.GetObjectFromName(nameof(Bones.cf_J_Spine02_s));
-                if (chestScale != null)
-                    boneVerts[Bones.cf_J_Spine02_s_Scale] = chestScale.transform.localScale;
-            }
         }
 
         internal MeasurementsData GetMeasurements(Dictionary<Bones, Vector3> boneVerts)
         {
             return new MeasurementsData
             {
-                Band = GetBand(),
                 Bust = GetBust(),
                 Dick = GetDick(),
                 Height = GetHeight(),
@@ -112,24 +99,6 @@ namespace Measurements
                         SideBoob = leftSideBoob,
                         Lat = boneVerts[Bones.N_Back_L],
                     });
-            }
-
-            float GetBand()
-            {
-                const float BAND_RATIO_FRONT = 0.8095239f;
-                const float BAND_RATIO_BACK = -0.8571428665f;
-                const float BAND_RATIO_SIDE = 1.09523809f;
-
-                var spine02 = boneVerts[Bones.cf_J_Spine02_s];
-                var spine03 = boneVerts[Bones.cf_J_Spine03_s];
-                var bandScale = boneVerts[Bones.cf_J_Spine02_s_Scale];
-
-                var front = new Vector3((spine02.x + spine03.x) / 2, spine02.y, bandScale.z * BAND_RATIO_FRONT);
-                var back = new Vector3(front.x, (front.y + spine03.y) / 2, bandScale.z * BAND_RATIO_BACK);
-                var right = new Vector3(bandScale.x * BAND_RATIO_SIDE, (front.y + back.y) / 2, (front.y + back.y) / 2);
-                var left = new Vector3(-1 * right.x, right.y, right.z);
-
-                return MeasurementsCalculator.CalculateBand(front, back, left, right);
             }
 
             float GetWaist() => MeasurementsCalculator.CalculateWaist(
@@ -174,7 +143,6 @@ namespace Measurements
             {
                 MeasurementsPlugin.Logger.LogInfo($"Height = {data.Height}");
                 MeasurementsPlugin.Logger.LogInfo($"Bust = {data.Bust}");
-                MeasurementsPlugin.Logger.LogInfo($"Band = {data.Band}");
                 MeasurementsPlugin.Logger.LogInfo($"Waist = {data.Waist}");
                 MeasurementsPlugin.Logger.LogInfo($"Hips = {data.Hips}");
                 MeasurementsPlugin.Logger.LogInfo($"Dick = {data.Dick}");

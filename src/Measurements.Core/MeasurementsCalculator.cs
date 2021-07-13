@@ -1,5 +1,4 @@
-﻿using KKAPI.Maker;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Measurements
@@ -8,14 +7,6 @@ namespace Measurements
     {
         public static float CalculateHeight(Vector3 topOfHead)
             => GetDistanceInCm(topOfHead, new Vector3(0, 0, 0));
-
-        public static float CalculateBand(Vector3 front, Vector3 back, Vector3 left, Vector3 right) =>
-            GetEllipseCircumference(
-                GetDistanceInCm(front, back) / 2,
-                GetDistanceInCm(left, right) / 2)
-            // adjust band by 20% of card height less the default height (50). otherwise,
-            // it measures too small for tall girls and too large for short girls
-            * (1f + (0.2f * (MakerAPI.GetCharacterControl().fileBody.shapeValueBody[0] - 0.5f)));
 
         public static float CalculateBust(TitMeasurement rightTit, TitMeasurement leftTit) => (
             GetDistanceInCm(rightTit.Nipple, rightTit.SideBoob) +
