@@ -81,7 +81,7 @@ namespace Measurements
             foreach (var gui in MeasurementsGui.TextGuis)
                 gui.REFACTOR_Update(data, this);
 
-            if (MeasurementsPlugin.DebugValues.Value)
+            if (MeasurementsPlugin.Configuration.DebugValues.Value)
             {
             }
         }

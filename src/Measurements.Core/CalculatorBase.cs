@@ -50,7 +50,7 @@ namespace Measurements
 
         protected void DebugLog(string name, float value)
         {
-            if (MeasurementsPlugin.DebugValues.Value)
+            if (MeasurementsPlugin.Configuration.DebugValues.Value)
                 MeasurementsPlugin.Logger.LogInfo($"{name} = {value}");
         }
     }

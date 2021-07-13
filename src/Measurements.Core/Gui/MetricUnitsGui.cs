@@ -10,7 +10,7 @@ namespace Measurements.Gui
             MeasurementsPlugin plugin,
             RegisterSubCategoriesEvent e)
         {
-            var control = new MakerToggle(category, "Use metric units", MeasurementsPlugin.UseMetricUnits.Value, plugin);
+            var control = new MakerToggle(category, "Use metric units", MeasurementsPlugin.Configuration.UseMetricUnits.Value, plugin);
             InitializeInternal(control, e,
                 ctrlr => ctrlr.UseMetricUnits,
                 (ctrlr, value) => ctrlr.UseMetricUnits = value);
