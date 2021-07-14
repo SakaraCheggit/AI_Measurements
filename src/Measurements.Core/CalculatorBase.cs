@@ -20,7 +20,7 @@ namespace Measurements
             SetValueInternal(ref data, value);
         }
 
-        private Dictionary<string, Vector3> GetBoneVertices(FindAssist boneSearcher)
+        internal Dictionary<string, Vector3> GetBoneVertices(FindAssist boneSearcher)
         {
             var boneVerts = new Dictionary<string, Vector3>();
             foreach (var boneName in BoneNames)
