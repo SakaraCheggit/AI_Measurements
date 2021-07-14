@@ -1,7 +1,9 @@
 using AIChara;
+using CharaCustom;
 using HarmonyLib;
 using KKAPI.Maker;
 using System.Linq;
+using System.Reflection;
 
 namespace Measurements
 {
@@ -55,6 +57,26 @@ namespace Measurements
                 ChaFileDefine.BodyShapeIdx.WaistLowZ,
                 ChaFileDefine.BodyShapeIdx.ThighUp,
             }.Select(idx => (int)idx).ToArray();
+
+            private static string[] s_bustGravitySliderNames = new string[] { "ssBustSoftness", "ssBustWeight" };
+
+            internal static void InitBustGravitySliders()
+            {
+                var controller = MakerAPI.GetCharacterControl().gameObject.GetComponent<MeasurementsController>();
+                var breastShapeType = typeof(CvsB_ShapeBreast);
+                var breastShape = FindObjectOfType(breastShapeType);
+                foreach (var sliderName in s_bustGravitySliderNames)
+                {
+                    var field = breastShapeType.GetField(sliderName, BindingFlags.Instance | BindingFlags.NonPublic);
+                    var slider = (CustomSliderSet)field.GetValue(breastShape);
+                    var onChange = slider.onChange;
+                    slider.onChange = (float f) =>
+                    {
+                        onChange(f);
+                        controller.UpdateTexts();
+                    };
+                }
+            }
         }
     }
 }

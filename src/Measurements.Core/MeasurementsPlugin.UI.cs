@@ -29,7 +29,11 @@ namespace Measurements
                         RegisterCustomSubCategories(plugin, e);
                     }
                 };
-                MakerAPI.MakerFinishedLoading += (_, e) => { UpdateData(); };
+                MakerAPI.MakerFinishedLoading += (_, e) =>
+                {
+                    UpdateData();
+                    Hooks.InitBustGravitySliders();
+                };
             }
 
             private static void RegisterCustomSubCategories(MeasurementsPlugin plugin, RegisterSubCategoriesEvent e)
