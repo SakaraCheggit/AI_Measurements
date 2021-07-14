@@ -19,7 +19,7 @@ namespace Measurements.Dick
         protected override void SetValueInternal(ref MeasurementsData data, float value)
         {
             data.Dick = value;
-            DebugLog(nameof(MeasurementsData.Band), data.Band);
+            DebugLog(nameof(MeasurementsData.Dick), data.Dick);
         }
     }
 }

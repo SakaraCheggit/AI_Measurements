@@ -19,9 +19,10 @@ namespace Measurements
         public void Start()
         {
             Logger = base.Logger;
-            MeasurementsPlugin.Configuration.Initialize(Config);
+            Configuration.Initialize(Config);
             CharacterApi.RegisterExtraBehaviour<MeasurementsController>(GUID);
-            MeasurementsPlugin.UI.Initialize(this);
+            Hooks.InitHooks();
+            UI.Initialize(this);
         }
     }
 }
