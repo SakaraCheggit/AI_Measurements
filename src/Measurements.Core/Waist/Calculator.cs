@@ -23,7 +23,7 @@ namespace Measurements.Waist
         protected override void SetValueInternal(ref MeasurementsData data, float value)
         {
             data.Waist = value;
-            DebugLog(nameof(MeasurementsData.Band), data.Band);
+            DebugLog(nameof(MeasurementsData.Waist), data.Waist);
         }
     }
 }

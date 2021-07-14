@@ -36,7 +36,7 @@ namespace Measurements.Hips
         protected override void SetValueInternal(ref MeasurementsData data, float value)
         {
             data.Hips = value;
-            DebugLog(nameof(MeasurementsData.Band), data.Band);
+            DebugLog(nameof(MeasurementsData.Hips), data.Hips);
         }
     }
 }
