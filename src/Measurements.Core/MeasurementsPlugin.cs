@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Logging;
 using KKAPI.Chara;
 using System;
@@ -12,7 +12,7 @@ namespace Measurements
     {
         public const string GUID = "sakacheggs.measurements";
         public const string Name = "Chara Measurements";
-        public const string Version = "1.1.0";
+        public const string Version = "1.2.0";
 
         internal static readonly string[] Regions = Enum.GetNames(typeof(Region));
 
