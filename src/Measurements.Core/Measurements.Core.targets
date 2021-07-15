@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <Description>Adds real world measurements to character creation</Description>
+    <Company>SakaCheggs</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IllusionLibs.BepInEx" Version="5.4.8" />
+    <PackageReference Include="IllusionLibs.BepInEx.Harmony" Version="2.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Measurements.Core\**\*.cs" />
+  </ItemGroup>
+</Project>

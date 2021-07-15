@@ -1,20 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="IllusionLibs.AIGirl.Assembly-CSharp" Version="2020.5.29.4" />
     <PackageReference Include="IllusionLibs.AIGirl.UniRx" Version="2020.5.29.2" />
     <PackageReference Include="IllusionLibs.AIGirl.UnityEngine.CoreModule" Version="2018.2.21.3" />
     <PackageReference Include="IllusionLibs.AIGirl.UnityEngine.UI" Version="2018.2.21.3" />
-    <PackageReference Include="IllusionLibs.BepInEx" Version="5.4.8" />
-    <PackageReference Include="IllusionLibs.BepInEx.Harmony" Version="2.3.2" />
     <PackageReference Include="IllusionModdingAPI.AIAPI" Version="1.20.2"></PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="..\Measurements.Core\**\*.cs" />
-  </ItemGroup>
+  <Import Project="..\Measurements.Core\Measurements.Core.targets" />
 </Project>
